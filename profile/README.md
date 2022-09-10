@@ -1,3 +1,3 @@
 why are u here
 
-we dont make out code public, soz
+we dont make our code public, soz
