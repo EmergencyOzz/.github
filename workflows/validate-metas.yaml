@@ -1,7 +1,7 @@
 # Copyright EmergencyOzz 2022
 name: Validate Meta Files (Created by EmergencyOzz)
 run-name: Validate FiveM Vehicle Metadata
-on: [push]
+on: push
 jobs:
   Validate-Metas:
     runs-on: ubuntu-latest
