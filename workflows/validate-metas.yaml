@@ -1,0 +1,29 @@
+# Copyright EmergencyOzz 2022
+name: Validate Meta Files (Created by EmergencyOzz)
+run-name: Validate FiveM Vehicle Metadata
+on: [push]
+jobs:
+  Validate-Metas:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Check out repository code
+       uses: Bhacaz/checkout-files@v2
+       with:
+        files: carvariations.meta handling.meta vehicles.meta carcols.meta
+     - name: Setup NodeJS
+       uses: actions/setup-node@v1
+       with:
+         node-version: 12.x
+     - name: Install XML Validator
+       run: npm install -g fast-xml-parser
+     - name: List files in the repository
+       run: |
+          ls ${{ github.workspace }}
+     - name: Validate carvariations.meta
+       run: fxparser ${{ github.workspace }}/carvariations.meta
+     - name: Validate handling.meta
+       run: fxparser ${{ github.workspace }}/handling.meta
+     - name: Validate vehicles.meta
+       run: fxparser ${{ github.workspace }}/vehicles.meta
+     - name: Validate carcols.meta
+       run: fxparser ${{ github.workspace }}/carcols.meta
